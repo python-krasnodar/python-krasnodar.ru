@@ -89,10 +89,12 @@ ENV/
 .ropeproject
 
 # idea project settings
-.idea
+.idea/
 
 # localsettings
 localsettings.py
 
 # local database
 db.sqlite3
+
+media/

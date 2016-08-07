@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ object.name }}</h1>
+    <section>{{ object.description }}</section>
+
+    <h2>Список уроков</h2>
+    <ul>
+        {% for lesson in series.lesson_set.all %}
+            <li>
+                <a href="{% url 'lessons:detail' lesson.id %}">{{ lesson.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

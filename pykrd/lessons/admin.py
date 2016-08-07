@@ -1,3 +1,15 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Lesson, Series
+
+
+class LessonAdmin(admin.ModelAdmin):
+    pass
+
+
+class SeriesAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Lesson, LessonAdmin)
+admin.site.register(Series, SeriesAdmin)

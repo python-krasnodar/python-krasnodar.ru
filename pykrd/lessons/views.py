@@ -1,3 +1,15 @@
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 
-# Create your views here.
+from .models import Series, Lesson
+
+
+class SeriesListView(ListView):
+    model = Series
+
+
+class SeriesDetailView(DetailView):
+    model = Series
+
+
+class LessonDetailView(DetailView):
+    model = Lesson
