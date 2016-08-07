@@ -5,6 +5,7 @@ class Series(models.Model):
     name = models.CharField(max_length=128, blank=False, null=False, unique=True)
     description = models.TextField(blank=True, null=True, default=None)
     cover = models.ImageField(upload_to='series')
+    slug = models.SlugField(max_length=128, blank=False, null=False, default='')
 
     def __str__(self):
         return self.name
@@ -16,6 +17,7 @@ class Lesson(models.Model):
     content = models.TextField(blank=False, null=False)
     series = models.ForeignKey(Series)
     position = models.IntegerField(default=0)
+    slug = models.SlugField(blank=False, null=False, default='')
 
     def __str__(self):
         return self.title

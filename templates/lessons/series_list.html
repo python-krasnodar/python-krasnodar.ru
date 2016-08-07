@@ -4,7 +4,7 @@
     <ul>
         {% for series in object_list %}
             <li>
-                <a href="{% url 'lessons:series_detail' series.id %}">{{ series.name }}</a>
+                <a href="{% url 'lessons:series_detail' series.slug %}">{{ series.name }}</a>
             </li>
         {% endfor %}
     </ul>
