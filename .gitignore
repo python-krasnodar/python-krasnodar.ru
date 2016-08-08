@@ -98,3 +98,6 @@ localsettings.py
 db.sqlite3
 
 media/
+
+# bower
+bower_components
