@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'djangobower',
     'blog',
+    'frontend',
     'lessons',
 ]
 

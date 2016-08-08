@@ -20,6 +20,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('frontend.urls', namespace='frontend')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^lessons/', include('lessons.urls', namespace='lessons')),
