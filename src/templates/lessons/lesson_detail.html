@@ -2,5 +2,5 @@
 
 {% block content %}
     <h1>{{ object.title }}</h1>
-    <section>{{ object.content }}</section>
+    <section>{{ object.content | safe }}</section>
 {% endblock %}
