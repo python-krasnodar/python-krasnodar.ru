@@ -1,0 +1,21 @@
+{
+  "name": "python-krasnodar.ru",
+  "homepage": "https://github.com/python-krasnodar/python-krasnodar.ru",
+  "authors": [
+    "Memory Clutter <memclutter@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "materialize": "^0.97.7"
+  }
+}
