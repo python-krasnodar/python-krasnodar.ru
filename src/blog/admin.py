@@ -6,4 +6,4 @@ class PostAdmin(admin.ModelAdmin):
     pass
 
 
-admin.register(Post, PostAdmin)
+admin.site.register(Post, PostAdmin)
