@@ -20,8 +20,25 @@
                             {% endfor %}
                         </div>
                     </div>
+                {% empty %}
+                    <div class="card">
+                        <div class="card-content">
+                            <p>Еще нет постов</p>
+                        </div>
+                    </div>
                 {% endfor %}
+                {% if is_paginated %}
+                    {% if page_obj.has_previous %}
+                        <a class="btn blue darken-2 left" href="{% url 'blog:post_list' %}?page={{ page_obj.previous_page_number }}">Назад</a>
+                    {% endif %}
+
+                    {% if page_obj.has_next %}
+                        <a class="btn blue darken-2 right" href="{% url 'blog:post_list' %}?page={{ page_obj.next_page_number }}">Вперед</a>
+                    {% endif %}
+                {% endif %}
             </div>
+
+            <!-- tags -->
             <div class="col s12 m4">
                 <div class="tags-pushpin-wrapper">
                     <div class="tags-pushpin-content">
