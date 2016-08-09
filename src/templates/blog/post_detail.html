@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="container">
     <h1>{{ object.title }}</h1>
     <section>{{ object.content | safe }}</section>
+    {% for tag in object.tags.all %}
+        <a href="#">{{ tag }}</a>
+    {% endfor %}
+    </div>
 {% endblock %}
