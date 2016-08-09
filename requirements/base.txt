@@ -1,6 +1,5 @@
 Django==1.10
 django-ckeditor==5.0.3
 Pillow==3.3.0
-pkg-resources==0.0.0
 psycopg2==2.6.2
 six==1.10.0

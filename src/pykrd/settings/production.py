@@ -1,6 +1,4 @@
-
-# Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+from .base import *
 
 DATABASES = {
     'default': {
