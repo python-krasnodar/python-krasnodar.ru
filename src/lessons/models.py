@@ -8,6 +8,7 @@ class Series(models.Model):
     description = RichTextField(blank=True, null=True, default=None)
     cover = models.ImageField(upload_to='series')
     slug = models.SlugField(max_length=128, blank=False, null=False, default='')
+    position = models.IntegerField(blank=False, null=False, default=0)
 
     def __str__(self):
         return self.name
