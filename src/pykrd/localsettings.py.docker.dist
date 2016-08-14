@@ -1,0 +1,9 @@
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': 'db',
+        'NAME': 'pykrd',
+        'USER': 'pykrd',
+        'PASSWORD': 'pykrd'
+    }
+}
