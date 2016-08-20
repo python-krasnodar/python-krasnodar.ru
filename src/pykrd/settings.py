@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangobower',
     'ckeditor',
     'ckeditor_uploader',
     'blog',
@@ -129,6 +130,11 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
+]
 
 # Media files (user uploaded)
 # https://docs.djangoproject.com/en/1.10/topics/files/
@@ -147,6 +153,15 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
+
+# Django Bower
+# https://django-bower.readthedocs.io/en/latest/installation.html
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR)
+BOWER_INSTALLED_APPS = (
+    'jquery',
+    'materialize',
+    'font-awesome',
+)
 
 try:
     from .localsettings import *
