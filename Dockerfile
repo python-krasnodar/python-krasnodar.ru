@@ -34,6 +34,6 @@ EXPOSE 3000
 CMD dockerize -wait tcp://db:5432 \
  && cp /app/src/pykrd/localsettings.py.docker.dist /app/src/pykrd/localsettings.py \
  && python manage.py migrate --no-input \
- && python manage.py bower_install -- --allow-root \
+ && bower install --silent --allow-root \
  && python manage.py collectstatic --no-input \
  && uwsgi --ini /app/uwsgi.ini

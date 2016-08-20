@@ -17,11 +17,12 @@ pip install -r requirements.txt
 ```
 
 After this you must configure your `src/pykrd/localsettings.py` file, 
-apply migrations, collect static files and run local development server.
+apply migrations, install bower, collect static files and run local development server.
 
 ```sh
 cd src
 cp pykrd/localsettings.py.dist pykrd/localsettings.py
+bower install 
 python manage.py migrate
 python manage.py collectstatic
 python manage.py runserver
