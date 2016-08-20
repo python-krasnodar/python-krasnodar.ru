@@ -1,24 +1,5 @@
 version: '2'
 services:
-  django:
-    build: .
-    depends_on:
-      - db
-    volumes:
-      - "./static:/home/build/static"
-      - "./media:/home/build/media"
-    restart: always
-
-  nginx:
-    build: ./docker/nginx
-    depends_on:
-      - django
-    ports:
-      - "82:80"
-    volumes:
-      - "./static:/home/build/static"
-      - "./media:/home/build/media"
-    restart: always
 
   db:
     build: ./docker/db
@@ -28,4 +9,25 @@ services:
       POSTGRES_DB: pykrd
       POSTGRES_USER: pykrd
       POSTGRES_PASSWORD: pykrd
+    restart: always
+
+  django:
+    build: .
+    depends_on:
+      - db
+    volumes:
+      - "./static:/app/static"
+      - "./media:/app/media"
+      - "./src:/app/src"
+    restart: always
+
+  nginx:
+    build: ./docker/nginx
+    depends_on:
+      - django
+    ports:
+      - "82:80"
+    volumes:
+      - "./static:/var/www/static"
+      - "./media:/var/www/media"
     restart: always
