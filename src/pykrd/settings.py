@@ -164,6 +164,6 @@ BOWER_INSTALLED_APPS = (
 )
 
 try:
-    from .localsettings import *
+    from pykrd.localsettings import *
 except ImportError:
     pass

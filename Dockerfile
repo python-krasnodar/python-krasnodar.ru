@@ -21,7 +21,7 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
  && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 # copy local settings for django
-RUN cp /app/src/pykrd/localsettings.py.docker.dist /app/src/pykrd/localsettings.py
+#RUN cp /app/src/pykrd/localsettings.py.docker.dist /app/src/pykrd/localsettings.py
 
 # install pip packages
 RUN pip install --upgrade pip \
@@ -32,6 +32,7 @@ WORKDIR /app/src
 EXPOSE 3000
 
 CMD dockerize -wait tcp://db:5432 \
+ && cp /app/src/pykrd/localsettings.py.docker.dist /app/src/pykrd/localsettings.py \
  && python manage.py migrate --no-input \
  && python manage.py bower_install -- --allow-root \
  && python manage.py collectstatic --no-input \
