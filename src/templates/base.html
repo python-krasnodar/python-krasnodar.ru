@@ -2,92 +2,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="{% static 'materialize/dist/css/materialize.css' %}"
-          media="screen,projection"/>
-    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8">
+
+    {% block head_tag %}
+
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="{% static 'materialize/dist/css/materialize.css' %}"
+              media="screen,projection"/>
+        <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    {% endblock %}
+
 </head>
 
 <body>
-<nav class="blue darken-2" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="{% url 'frontend:index' %}" class="brand-logo"><img src="{% static 'img/logo.png' %}" height="24"> PyKrasnodar</a>
-        <ul class="right hide-on-med-and-down">
-            <li {% if request.path|slice:':2' == '/' %}class="active"{% endif %}><a href="{% url 'frontend:index' %}">Главная</a>
-            </li>
-            <li {% if request.path|slice:':6' == '/blog/' %}class="active"{% endif %}><a href="{% url 'blog:post_list' %}">Блог</a>
-            </li>
-            <li {% if request.path|slice:':9' == '/lessons/' %}class="active"{% endif %}><a href="{% url 'lessons:series_list' %}">Уроки</a>
-            </li>
-        </ul>
 
-        <ul id="nav-mobile" class="side-nav">
-            <li {% if request.path|slice:':2' == '/' %}class="active"{% endif %}><a href="{% url 'frontend:index' %}">Главная</a></li>
-            <li {% if request.path|slice:':6' == '/blog/' %}class="active"{% endif %}><a href="{% url 'blog:post_list' %}">Блог</a></li>
-            <li {% if request.path|slice:':9' == '/lessons/' %}class="active"{% endif %}><a href="{% url 'lessons:series_list' %}">Уроки</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-</nav>
-{% block content %}{% endblock %}
-<footer class="page-footer orange">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Python Krasnodar</h5>
-                <p class="grey-text text-lighten-4">
-                    Группа краснодарских Python-разработчиков. Вся информация о Python для Краснодарского community.
-                </p>
+    <nav class="blue darken-2" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="{% url 'frontend:index' %}" class="brand-logo">
+                <img src="{% static 'img/logo.png' %}" height="24"> PyKrasnodar
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li {% if request.path|slice:':2' == '/' %}class="active"{% endif %}>
+                    <a href="{% url 'frontend:index' %}">Главная</a>
+                </li>
+                <li {% if request.path|slice:':6' == '/blog/' %}class="active"{% endif %}>
+                    <a href="{% url 'blog:post_list' %}">Блог</a>
+                </li>
+                <li {% if request.path|slice:':9' == '/lessons/' %}class="active"{% endif %}>
+                    <a href="{% url 'lessons:series_list' %}">Уроки</a>
+                </li>
+            </ul>
 
-                <p>
-                    <a class="black-text" href="https://github.com/python-krasnodar"><i class="fa fa-github"></i> GitHub</a><br>
-                    <a class="blue-text text-darken-4" href="https://new.vk.com/python_krasnodar"><i class="fa fa-vk"></i> VKontakte</a>
-                </p>
-            </div>
-{#            <div class="col l3 s12">#}
-{#                <h5 class="white-text">Settings</h5>#}
-{#                <ul>#}
-{#                    <li><a class="white-text" href="#!">Link 1</a></li>#}
-{#                    <li><a class="white-text" href="#!">Link 2</a></li>#}
-{#                    <li><a class="white-text" href="#!">Link 3</a></li>#}
-{#                    <li><a class="white-text" href="#!">Link 4</a></li>#}
-{#                </ul>#}
-{#            </div>#}
-{#            <div class="col l3 s12">#}
-{#                <h5 class="white-text">Connect</h5>#}
-{#                <ul>#}
-{#                    <li><a class="white-text" href="#!">Link 1</a></li>#}
-{#                    <li><a class="white-text" href="#!">Link 2</a></li>#}
-{#                    <li><a class="white-text" href="#!">Link 3</a></li>#}
-{#                    <li><a class="white-text" href="#!">Link 4</a></li>#}
-{#                </ul>#}
-{#            </div>#}
+            <ul id="nav-mobile" class="side-nav">
+                <li {% if request.path|slice:':2' == '/' %}class="active"{% endif %}><a href="{% url 'frontend:index' %}">Главная</a></li>
+                <li {% if request.path|slice:':6' == '/blog/' %}class="active"{% endif %}><a href="{% url 'blog:post_list' %}">Блог</a></li>
+                <li {% if request.path|slice:':9' == '/lessons/' %}class="active"{% endif %}><a href="{% url 'lessons:series_list' %}">Уроки</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
-    </div>
-    <div class="footer-copyright">
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="page-footer orange">
         <div class="container">
-            Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Python Krasnodar</h5>
+                    <p class="grey-text text-lighten-4">
+                        Группа краснодарских Python-разработчиков. Вся информация о Python для Краснодарского community.
+                    </p>
+
+                    <p>
+                        <a class="black-text" href="https://github.com/python-krasnodar"><i class="fa fa-github"></i> GitHub</a><br>
+                        <a class="blue-text text-darken-4" href="https://new.vk.com/python_krasnodar"><i class="fa fa-vk"></i> VKontakte</a>
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+        </div>
+    </footer>
 
-<!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'materialize/dist/js/materialize.min.js' %}"></script>
-<script>
-    (function ($) {
-        $(function () {
+    {% block body_tag_end %}
 
-            $('.button-collapse').sideNav();
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'materialize/dist/js/materialize.min.js' %}"></script>
+        <script>
+            (function ($) {
+                $(function () {
 
-            $('.tags-pushpin-content').pushpin({top: $('.tags-pushpin-wrapper').offset().top});
+                    $('.button-collapse').sideNav();
 
-        }); // end of document ready
-    })(jQuery); // end of jQuery name space
-</script>
+                    if ($('.tags-pushpin-content').length) {
+                        $('.tags-pushpin-content').pushpin({top: $('.tags-pushpin-wrapper').offset().top});
+                    }
+
+                    $('.carousel.carousel-slider').carousel({full_width: true});
+                });
+            })(jQuery);
+        </script>
+
+    {% endblock %}
+
 </body>
 </html>
